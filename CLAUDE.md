@@ -553,9 +553,7 @@ sequenceDiagram
 
 ### Slack 채널
 
-- `#pro-report-planning` - 기획 논의
-- `#pro-report-dev` - 개발 진행
-- `#pro-report-qa` - QA 이슈
+- `#p-cafe24pro-리포트` - https://cafe24.enterprise.slack.com/archives/C09AR1W782H
 
 ### 리뷰 프로세스
 
