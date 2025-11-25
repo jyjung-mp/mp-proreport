@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO Report Button Variants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F5F5F5;
+      padding: 48px 24px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 24px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .button-label {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 8px;
+    }
+
+    /* Base Button Styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Primary Button */
+    .btn-primary {
+      background: #0066FF;
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #0052CC;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      background: #003D99;
+      transform: translateY(0);
+    }
+
+    /* Secondary Button */
+    .btn-secondary {
+      background: #FFFFFF;
+      color: #0066FF;
+      border: 1px solid #0066FF;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: #F0F7FF;
+      border-color: #0052CC;
+      color: #0052CC;
+    }
+
+    .btn-secondary:active:not(:disabled) {
+      background: #E0EFFF;
+    }
+
+    /* Success Button */
+    .btn-success {
+      background: #00C73C;
+      color: #FFFFFF;
+    }
+
+    .btn-success:hover:not(:disabled) {
+      background: #00A333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 199, 60, 0.3);
+    }
+
+    /* Warning Button */
+    .btn-warning {
+      background: #FFB800;
+      color: #333333;
+    }
+
+    .btn-warning:hover:not(:disabled) {
+      background: #E5A500;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+    }
+
+    /* Danger Button */
+    .btn-danger {
+      background: #FF4444;
+      color: #FFFFFF;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background: #E63333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+    }
+
+    /* Outline Button */
+    .btn-outline {
+      background: transparent;
+      color: #333333;
+      border: 1px solid #CCCCCC;
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: #F5F5F5;
+      border-color: #999999;
+    }
+
+    /* Text Button */
+    .btn-text {
+      background: transparent;
+      color: #0066FF;
+      padding: 0 12px;
+    }
+
+    .btn-text:hover:not(:disabled) {
+      background: #F0F7FF;
+    }
+
+    /* Icon Button */
+    .btn-icon {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    /* Size Variants */
+    .btn-sm {
+      height: 36px;
+      padding: 0 16px;
+      font-size: 14px;
+    }
+
+    .btn-lg {
+      height: 56px;
+      padding: 0 32px;
+      font-size: 18px;
+    }
+
+    /* Full Width */
+    .btn-block {
+      width: 100%;
+    }
+
+    /* CTA Variants */
+    .cta-boost {
+      background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+      box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+    }
+
+    .cta-boost:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    }
+
+    .cta-boost-enhanced {
+      background: linear-gradient(135deg, #0066FF 0%, #00C73C 100%);
+      padding: 16px 24px;
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .cta-boost-enhanced .main-text {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cta-boost-enhanced .sub-text {
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .btn {
+        height: 44px;
+      }
+
+      .btn-sm {
+        height: 32px;
+      }
+
+      .btn-lg {
+        height: 52px;
+      }
+    }
+
+    .code-block {
+      background: #F5F5F5;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #333333;
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Basic Variants -->
+    <div class="section">
+      <h2 class="section-title">기본 버튼 변형</h2>
+
+      <div class="button-group">
+        <div>
+          <p class="button-label">Primary Button</p>
+          <button class="btn btn-primary">매출 boost하기</button>
+        </div>
+
+        <div>
+          <p class="button-label">Secondary Button</p>
+          <button class="btn btn-secondary">자세히 보기</button>
+        </div>
+
+        <div>
+          <p class="button-label">Success Button</p>
+          <button class="btn btn-success">완료</button>
+        </div>
+
+        <div>
+          <p class="button-label">Warning Button</p>
+          <button class="btn btn-warning">주의 필요</button>
+        </div>
+
+        <div>
+          <p class="button-label">Danger Button</p>
+          <button class="btn btn-danger">삭제</button>
+        </div>
+
+        <div>
+          <p class="button-label">Outline Button</p>
+          <button class="btn btn-outline">취소</button>
+        </div>
+
+        <div>
+          <p class="button-label">Text Button</p>
+          <button class="btn btn-text">더 알아보기 →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Size Variants -->
+    <div class="section">
+      <h2 class="section-title">크기 변형</h2>
+
+      <div class="button-group">
+        <div>
+          <p class="button-label">Small (36px)</p>
+          <button class="btn btn-primary btn-sm">작은 버튼</button>
+        </div>
+
+        <div>
+          <p class="button-label">Default (48px)</p>
+          <button class="btn btn-primary">기본 버튼</button>
+        </div>
+
+        <div>
+          <p class="button-label">Large (56px)</p>
+          <button class="btn btn-primary btn-lg">큰 버튼</button>
+        </div>
+
+        <div>
+          <p class="button-label">Full Width</p>
+          <button class="btn btn-primary btn-block">전체 너비 버튼</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon Buttons -->
+    <div class="section">
+      <h2 class="section-title">아이콘 버튼</h2>
+
+      <div class="button-group">
+        <div>
+          <p class="button-label">With Left Icon</p>
+          <button class="btn btn-primary">
+            <span>📈</span>
+            <span>매출 분석</span>
+          </button>
+        </div>
+
+        <div>
+          <p class="button-label">With Right Icon</p>
+          <button class="btn btn-primary">
+            <span>다음 단계</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <div>
+          <p class="button-label">Icon Only</p>
+          <button class="btn btn-primary btn-icon">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRO Report CTA Variants -->
+    <div class="section">
+      <h2 class="section-title">PRO 리포트 전용 CTA</h2>
+
+      <div class="button-group">
+        <div>
+          <p class="button-label">Option A - Conservative (아이콘 + 색상)</p>
+          <button class="btn btn-primary btn-block">
+            <span>💰</span>
+            <span>매출 boost하기</span>
+          </button>
+          <div class="code-block">
+&lt;button class="btn btn-primary"&gt;
+  &lt;span&gt;💰&lt;/span&gt;
+  &lt;span&gt;매출 boost하기&lt;/span&gt;
+&lt;/button&gt;
+          </div>
+        </div>
+
+        <div>
+          <p class="button-label">Option B - Gradient CTA</p>
+          <button class="btn cta-boost btn-block">
+            <span>📈</span>
+            <span>매출 25% 더 올리기</span>
+            <span>→</span>
+          </button>
+          <div class="code-block">
+&lt;button class="btn cta-boost"&gt;
+  &lt;span&gt;📈&lt;/span&gt;
+  &lt;span&gt;매출 25% 더 올리기&lt;/span&gt;
+  &lt;span&gt;→&lt;/span&gt;
+&lt;/button&gt;
+          </div>
+        </div>
+
+        <div>
+          <p class="button-label">Option C - Enhanced CTA (구체적 혜택)</p>
+          <button class="btn cta-boost-enhanced btn-block">
+            <div class="main-text">이번 달 52만원 더 벌 수 있어요</div>
+            <div class="sub-text">SEO 최적화로 달성 → PRO 평균 대비 +15% 가능</div>
+          </button>
+          <div class="code-block">
+&lt;button class="btn cta-boost-enhanced"&gt;
+  &lt;div class="main-text"&gt;이번 달 52만원 더 벌 수 있어요&lt;/div&gt;
+  &lt;div class="sub-text"&gt;SEO 최적화로 달성 →&lt;/div&gt;
+&lt;/button&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- States -->
+    <div class="section">
+      <h2 class="section-title">상태 변형</h2>
+
+      <div class="button-group">
+        <div>
+          <p class="button-label">Default State</p>
+          <button class="btn btn-primary">기본 상태</button>
+        </div>
+
+        <div>
+          <p class="button-label">Disabled State</p>
+          <button class="btn btn-primary" disabled>비활성화</button>
+        </div>
+
+        <div>
+          <p class="button-label">Loading State (simulate)</p>
+          <button class="btn btn-primary" disabled>
+            <span style="animation: spin 1s linear infinite; display: inline-block;">⟳</span>
+            <span>로딩 중...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+</body>
+</html>

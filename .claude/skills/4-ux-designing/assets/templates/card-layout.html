@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO Report Card Template</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F5F5F5;
+      padding: 24px;
+    }
+
+    /* Metric Card Template */
+    .pro-metric-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #E0E0E0;
+      max-width: 400px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #666666;
+      margin-bottom: 16px;
+    }
+
+    .metric-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333333;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .metric-trend {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    .metric-trend.positive {
+      color: #00C73C;
+    }
+
+    .metric-trend.negative {
+      color: #FF4444;
+    }
+
+    .metric-trend.neutral {
+      color: #666666;
+    }
+
+    .icon {
+      font-size: 16px;
+    }
+
+    /* Breakdown Section */
+    .metric-breakdown {
+      border-top: 1px solid #E0E0E0;
+      padding-top: 16px;
+    }
+
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .breakdown-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .breakdown-label {
+      font-size: 14px;
+      color: #666666;
+      flex: 1;
+    }
+
+    .breakdown-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333333;
+      margin-right: 12px;
+    }
+
+    .breakdown-bar-container {
+      flex: 2;
+      height: 8px;
+      background: #F5F5F5;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .breakdown-bar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .breakdown-bar.primary {
+      background: #0066FF;
+    }
+
+    .breakdown-bar.success {
+      background: #00C73C;
+    }
+
+    .breakdown-bar.warning {
+      background: #FFB800;
+    }
+
+    .breakdown-bar.info {
+      background: #3385FF;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      width: 100%;
+      height: 48px;
+      background: #0066FF;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .cta-button:hover {
+      background: #0052CC;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+    }
+
+    .cta-button:active {
+      background: #003D99;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 16px;
+      }
+
+      .pro-metric-card {
+        padding: 20px;
+      }
+
+      .metric-value {
+        font-size: 28px;
+      }
+
+      .cta-button {
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PRO 매출 기여도 카드 -->
+  <div class="pro-metric-card">
+    <h3 class="card-title">PRO가 만들어준 매출</h3>
+    <div class="metric-value">1,234,567원</div>
+    <div class="metric-trend positive">
+      <span class="icon">▲</span>
+      <span>지난달 대비 +15.3%</span>
+    </div>
+
+    <div class="metric-breakdown">
+      <div class="breakdown-item">
+        <span class="breakdown-label">SEO</span>
+        <span class="breakdown-value">52만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar primary" style="width: 42%;"></div>
+        </div>
+      </div>
+      <div class="breakdown-item">
+        <span class="breakdown-label">CRM</span>
+        <span class="breakdown-value">38만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar success" style="width: 31%;"></div>
+        </div>
+      </div>
+      <div class="breakdown-item">
+        <span class="breakdown-label">프로모션</span>
+        <span class="breakdown-value">28만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar warning" style="width: 23%;"></div>
+        </div>
+      </div>
+      <div class="breakdown-item">
+        <span class="breakdown-label">채널 판매</span>
+        <span class="breakdown-value">5.4만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar info" style="width: 4%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="cta-button">
+      <span>매출 더 올리기</span>
+      <span>→</span>
+    </button>
+  </div>
+
+  <!-- 절약 시간/비용 카드 -->
+  <div class="pro-metric-card">
+    <h3 class="card-title">PRO가 절약해준 시간</h3>
+    <div class="metric-value">42.5시간</div>
+    <div class="metric-trend neutral">
+      <span class="icon">=</span>
+      <span>639,412원</span>
+    </div>
+
+    <div style="background: #F0F7FF; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+      <p style="font-size: 14px; color: #333333; line-height: 1.5;">
+        이 시간으로<br>
+        <strong style="color: #0066FF;">신규 상품 85개 기획</strong> 가능합니다
+      </p>
+    </div>
+
+    <p style="font-size: 12px; color: #999999; text-align: center;">
+      올해 예상 절약: 약 767만원
+    </p>
+
+    <button class="cta-button">
+      <span>더 많은 시간 확보하기</span>
+      <span>→</span>
+    </button>
+  </div>
+
+  <!-- 오늘의 매출 카드 -->
+  <div class="pro-metric-card">
+    <h3 class="card-title">오늘의 매출</h3>
+    <div class="metric-value">1,852,000원</div>
+    <div class="metric-trend positive">
+      <span class="icon">▲</span>
+      <span>어제 대비 +8.2%</span>
+    </div>
+
+    <div class="metric-breakdown">
+      <div class="breakdown-item">
+        <span class="breakdown-label">자사몰</span>
+        <span class="breakdown-value">120만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar primary" style="width: 65%;"></div>
+        </div>
+      </div>
+      <div class="breakdown-item">
+        <span class="breakdown-label">연동 마켓</span>
+        <span class="breakdown-value">65만</span>
+        <div class="breakdown-bar-container">
+          <div class="breakdown-bar success" style="width: 35%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size: 14px; color: #666666; margin-top: 16px; text-align: center;">
+      주문 45건 | 평균 객단가 41,156원
+    </p>
+  </div>
+
+</body>
+</html>
